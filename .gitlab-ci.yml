@@ -1,0 +1,10 @@
+image: rootproject/root-ubuntu16
+
+stages:
+  - run
+
+install:
+  stage: run
+  script:
+    - $(root-config --cxx) $(root-config --cflags) foo.cpp -c -o foo.o -Wall -Wextra
+    - $(root-config --cxx) $(root-config --libs) foo.o -o foo
